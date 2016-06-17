@@ -1,0 +1,45 @@
+[core]
+	excludesfile = ~/.gitignore-global
+	filemode = false
+	editor = vim
+	pager = less -i
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	st = status
+	br = branch
+	f = fetch --prune
+	p = pull --prune
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	lga = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	d = diff
+	dt = difftool
+	mt = mergetool
+	rpo = remote prune origin
+	gadd = !sh -c 'git ls-files $0 --exclude-per-directory=.gitignore | grep "$1" | xargs git add'
+	gco = !sh -c 'git ls-files $0 --exclude-per-directory=.gitignore | grep "$1" | xargs git checkout HEAD'
+	grm = !sh -c 'git ls-files $0 --exclude-per-directory=.gitignore | grep "$1" | xargs git rm'
+	ctags = !.git/hooks/ctags
+[diff]
+	compactionHeuristic = true
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+	defaultToUpstream = true
+[mergetool]
+	prompt = false
+	keepBackup = false
+	writeToTemp = true
+[init]
+	templatedir = ~/.git_template
+[push]
+	default = upstream
+[tar "tar.xz"]
+	command = xz -c
+[filter "replace-homedirs"]
+	clean = sed 's@'"$HOME"'@$HOME@g'
+	smudge = sed 's@$HOME@'"$HOME"'@g'
+[include]
+	path = ~/.gitconfig-local

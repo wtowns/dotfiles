@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "-- Installing submodules"
+git submodule update --init --recursive
+
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "${BASEDIR}"
+./install-dotbot
+
+echo "-- Running OSX install script"
+pushd osx; ./osx-install.sh; popd
+
+echo "-- Building Vim plugins"
+pushd vim; ./build-plugins; popd

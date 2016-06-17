@@ -1,0 +1,25 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.bash_profile: bash_profile
+    ~/.bashrc: bashrc
+    ~/.bash-aliases: bash-aliases
+    ~/.ctags: ctags
+    ~/.git_template: git_template
+    ~/.gitconfig: gitconfig
+    ~/.gitignore-global: gitignore-global
+    ~/.hgignore_global: hgignore_global
+    ~/.hgrc-global: hgrc-global
+    ~/.inputrc: inputrc
+    ~/.screenrc: screenrc
+    ~/.tmux: tmux
+    ~/.tmux.conf: tmux.conf
+    ~/.vim: vim
+    ~/.vimrc: vim/vimrc
+    ~/.gvimrc: vim/gvimrc

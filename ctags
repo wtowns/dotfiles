@@ -1,0 +1,13 @@
+--exclude="\.svn"
+--totals=yes
+--tag-relative=yes
+--PHP-kinds=+cf
+--regex-PHP=/abstract class ([^ ]*)/\1/c/
+--regex-PHP=/interface ([^ ]*)/\1/c/
+--regex-PHP=/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/
+--langdef=actionscript
+--langmap=actionscript:.as
+--regex-actionscript=/^[ \t]*((private|protected|public|static|internal|override|final)[ \t]+)+function[ \t]+([A-Za-z0-9_]+)[ \t]*\(/\3/f, function, functions/
+--regex-actionscript=/^[ \t]*((private|protected|public|static|internal|override|final)[ \t]+)+function[ \t]+(set|get)[ \t]+([A-Za-z0-9_]+)[ \t]*\(/\4/p,property, properties/
+--regex-actionscript=/^[ \t]*((private|protected|public|static|internal)[ \t]+)+(var|const)[ \t]+([A-Za-z0-9_]+)[ \t]*/\4/v,variable, variables/
+--regex-actionscript=/^[ \t]*((private|public)[ \t]+){1}(class|interface)[ \t]+([A-Za-z0-9_]+)[ \t]*/\4/c,class, classes/

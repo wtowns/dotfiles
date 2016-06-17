@@ -1,0 +1,5 @@
+shell -${SHELL}		# Use whatever shell started screen (instead of vanilla /bin/sh)
+startup_message off 	# No splash screen
+autodetach on		# Detach session on hangup, rather than terminating screen
+defscrollback 30000	# Plenty of scrollback history
+altscreen on		# Clean up artifacts left by exiting vim and the like

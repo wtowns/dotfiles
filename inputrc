@@ -1,0 +1,5 @@
+$if mode=vi
+	# Remap "jk" keypress to ESC
+	set keymap vi-insert
+	"jk": vi-movement-mode
+$endif
