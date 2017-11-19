@@ -9,6 +9,7 @@ cscope
 ctags
 figlet
 fortune
+fzf
 git
 git-imerge
 gnupg

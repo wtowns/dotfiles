@@ -52,6 +52,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 	. $(brew --prefix)/etc/bash_completion
 fi
 
+# Use git file listings in fzf
+export FZF_DEFAULT_COMMAND='(git ls-files --recurse-submodules || find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//) 2> /dev/null'
+
 # Custom prompt: User@Location (current git branch)\n$
 if type -t __git_ps1 | grep -q '^function$' 2>/dev/null; then
 	export PS1='\[\033[0m\]\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\]$(__git_ps1) \[\033[0m\]$ '
