@@ -79,3 +79,6 @@ cowsay $(fortune -s)
 if [ -f "$HOME/.bashrc-local" ]; then
 	source "$HOME/.bashrc-local"
 fi
+
+# Hook hub up to git
+eval "$(hub alias -s)"
