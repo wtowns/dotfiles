@@ -18,6 +18,8 @@
     ~/.hgrc-global: hgrc-global
     ~/.inputrc: inputrc
     ~/.screenrc: screenrc
+    ~/.tigrc: tigrc
+    ~/.tig-colors: tig-colors
     ~/.tmux: tmux
     ~/.tmux.conf: tmux.conf
     ~/.vim: vim

@@ -1,0 +1,6 @@
+color date           white   default
+
+# Main window.
+color cursor         black   cyan         # currently selected line
+color graph-commit   cyan    default      # commit dots in graph
+color main-head      green   default bold # HEAD

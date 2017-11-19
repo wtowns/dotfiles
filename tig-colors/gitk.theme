@@ -1,0 +1,32 @@
+# Try to mimic gitk's colors.
+
+color date      default default
+color delimiter default default # ~ if text is too long
+
+# Main window.
+color cursor         black   cyan         # currently selected line
+color author         default default
+color graph-commit   magenta default      # commit dots in graph
+color main-head      green   default bold # HEAD
+color main-ref       green   default      # branches
+color main-remote    yellow  default      # remote branches
+color main-tag       yellow  default bold # tags
+color main-local-tag yellow  default bold # local tags (normal tags)
+
+# Information at the top of the commit diff.
+color commit                default default
+color "Author: "            default default
+color "Commit: "            default default
+color pp-merge              default default
+color "Date: "              default default
+color "AuthorDate: "        default default
+color "CommitDate: "        default default
+color pp-refs               default default
+# Special parts of the commit message.
+color "    Signed-off-by"   default default
+color "    Acked-by"        default default
+
+# Diff coloring.
+color diff-header default default bold # diff --git a/.. b/..
+color diff-index  default default bold # index abc..def
+color diff-chunk  cyan    default      # @@ -.. +.. @@

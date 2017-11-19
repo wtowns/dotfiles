@@ -1,0 +1,35 @@
+# Copy sha-1 to clipboard
+bind generic I !@sh -c "printf '%s' %(commit) | pbcopy"
+
+# Copy file to clipboard
+bind generic f !@sh -c "printf '%s' %(file) | pbcopy"
+
+# Interactive rebase
+bind main B !git rebase -i %(commit)
+
+# Intent-to-add
+bind status N !@git add -N %(file)
+
+# Add patch
+bind status P !git add --patch %(file)
+
+# Checkout ours/theirs
+bind status ( ?@git checkout --ours %(file)
+bind status ) ?@git checkout --theirs %(file)
+
+# Open externally
+bind status E !@open %(file)
+
+# Create a new branch
+bind refs n !@git branch "%(prompt Enter branch name: )"
+
+# Add/edit notes for commit
+bind generic T !git notes edit %(commit)
+
+# Amend last commit
+bind generic + !git commit --amend
+
+# Tag selected commit
+bind main T !@git tag %(prompt) %(commit)
+
+source ~/.tig-colors/desert.theme
