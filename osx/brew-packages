@@ -25,6 +25,7 @@ node
 openssl
 pinentry-mac
 protobuf
+python
 reattach-to-user-namespace
 rename
 selecta

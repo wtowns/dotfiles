@@ -63,7 +63,11 @@ else
 fi
 
 # Expose powerline location for tmux
-export POWERLINE_PKG=`python -c "from imp import find_module; print(find_module('powerline'))[1]"`
+if hash python2 2>/dev/null; then
+	export POWERLINE_PKG=`python2 -c "from imp import find_module; print(find_module('powerline'))[1]"`
+else
+	export POWERLINE_PKG=`python -c "from imp import find_module; print(find_module('powerline'))[1]"`
+fi
 if [ -d "$POWERLINE_PKG" ]; then
 	export PATH="$PATH":$(cd "${POWERLINE_PKG}/../../../../bin"; pwd)
 fi
