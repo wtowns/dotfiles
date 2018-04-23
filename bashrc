@@ -78,8 +78,6 @@ fi
 echo "--------------------------------"
 echo "It is currently `date`"
 echo ""
-echo "Last 5 login events:"
-last | head -n5 | tail -r
 cowsay $(fortune -s)
 
 # Check/source local bashrc
