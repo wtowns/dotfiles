@@ -11,6 +11,3 @@ cd "${BASEDIR}"
 
 echo "-- Running OSX install script"
 pushd osx; ./osx-install.sh; popd
-
-echo "-- Building Vim plugins"
-pushd vim; ./build-plugins; popd
