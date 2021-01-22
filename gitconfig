@@ -22,6 +22,8 @@
 	grm = !sh -c 'git ls-files $0 --exclude-per-directory=.gitignore | grep "$1" | xargs git rm'
 	unmerged = !sh -c 'git ls-files -u | cut -f 2 | sort -u | sed "s/.*/\"&\"/"'
 	ctags = !.git/hooks/ctags
+	serve = daemon --verbose --export-all --reuseaddr --strict-paths .
+	quickserve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
 [diff]
 	tool = vimdiff
 	compactionHeuristic = true
