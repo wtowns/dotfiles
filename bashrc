@@ -16,35 +16,6 @@ export EDITOR=vim
 # ssh host autocomplete
 complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
 
-# Create ~/tmp if it doesn't exist
-if [ ! -e "$HOME/tmp" ]; then
-	echo "Creating ~/tmp"
-	mkdir $HOME/tmp
-fi
-
-# Add ~/bin to PATH
-if [ -d "$HOME/bin" ]; then
-	export PATH=$PATH:"$HOME/bin"
-fi
-
-# Add default /usr/local/bin
-if [ -d "/usr/local/bin" ]; then
-	export PATH="/usr/local/bin":"$PATH"
-fi
-
-# Add default /usr/local/sbin
-if [ -d "/usr/local/sbin" ]; then
-	export PATH="/usr/local/sbin":"$PATH"
-fi
-
-# Set p4 config if present
-if [ -e "$HOME/.p4config" ]; then
-	export P4CONFIG="$HOME/.p4config"
-fi
-
-# Sweet, sweet aliases
-source "$HOME/.bash-aliases"
-
 # Git branch completion and PS1 goodies
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUPSTREAM="auto"
@@ -72,6 +43,11 @@ if [ -d "$POWERLINE_PKG" ]; then
 	export PATH="$PATH":$(cd "${POWERLINE_PKG}/../../../../bin"; pwd)
 fi
 
+# Check/source local bashrc
+if [ -f "$HOME/.bashrc-local" ]; then
+	source "$HOME/.bashrc-local"
+fi
+
 if hash figlet 2>/dev/null; then
 	figlet -f cybermedium `hostname`:`whoami`
 fi
@@ -79,11 +55,6 @@ echo "--------------------------------"
 echo "It is currently `date`"
 echo ""
 cowsay $(fortune -s)
-
-# Check/source local bashrc
-if [ -f "$HOME/.bashrc-local" ]; then
-	source "$HOME/.bashrc-local"
-fi
 
 # Hook hub up to git
 eval "$(hub alias -s)"
