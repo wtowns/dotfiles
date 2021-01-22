@@ -48,8 +48,9 @@ if [ -f "$HOME/.bashrc-local" ]; then
 	source "$HOME/.bashrc-local"
 fi
 
+# MOTD
 if hash figlet 2>/dev/null; then
-	figlet -f cybermedium `hostname`:`whoami`
+	figlet -w 200 -f larry3d `hostname`
 fi
 echo "--------------------------------"
 echo "It is currently `date`"
