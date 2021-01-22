@@ -55,6 +55,3 @@ echo "--------------------------------"
 echo "It is currently `date`"
 echo ""
 cowsay $(fortune -s)
-
-# Hook hub up to git
-eval "$(hub alias -s)"
