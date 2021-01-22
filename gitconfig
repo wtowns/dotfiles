@@ -33,8 +33,6 @@
 	prompt = false
 	keepBackup = false
 	writeToTemp = true
-[init]
-	templatedir = ~/.git_template
 [push]
 	default = upstream
 [tar "tar.xz"]
