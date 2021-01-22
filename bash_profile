@@ -38,5 +38,8 @@ if [ -f "$HOME/.bash_profile-local" ]; then
 	source "$HOME/.bash_profile-local"
 fi
 
+# Use homebrew Ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
 # If this is an interactive shell, run .bashrc
 [[ $- == *i* ]] && . "$HOME/.bashrc"
