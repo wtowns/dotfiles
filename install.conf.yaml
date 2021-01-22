@@ -25,3 +25,4 @@
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
     ~/.gvimrc: vim/gvimrc
+    ~/.ideavimrc: vim/ideavimrc
