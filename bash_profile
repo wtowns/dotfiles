@@ -30,9 +30,6 @@ fi
 # Sweet, sweet aliases
 source "$HOME/.bash-aliases"
 
-# Hook hub up to git
-eval "$(hub alias -s)"
-
 # Check/source local .bash_profile
 if [ -f "$HOME/.bash_profile-local" ]; then
 	source "$HOME/.bash_profile-local"
