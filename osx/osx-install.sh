@@ -89,10 +89,5 @@ fi
 echo "-- Installing fonts"
 cp "${BASEDIR}"/fonts/* "${HOME}/Library/Fonts/"
 
-if [ ! command -v nunit-console.exe >/dev/null 2>&1 && command -v nunit-console >/dev/null 2>&1 ]; then
-	echo "Symlinking nunit-console"
-	ln -s "$(command -v nunit-console)" "$(dirname "$(command -v nunit-console)")/nunit-console.exe"
-fi
-
 echo "-- Additional manual steps:"
 echo "  * Set the iTerm2 preferences directory"
