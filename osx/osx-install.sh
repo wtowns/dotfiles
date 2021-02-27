@@ -86,13 +86,6 @@ if [ ! -f "${HOME}/.gitconfig-local" ] || [ ! "$(git config -f "${HOME}/.gitconf
 	git config -f "${HOME}/.gitconfig-local" user.email ${DEFAULT_EMAIL}
 fi
 
-echo "-- Generating .hgrc"
-printf "[ui]\nusername = ${FULL_NAME} <${DEFAULT_EMAIL}>\n\n%%include .hgrc-global\n%%include .hgrc-local\n" > "${HOME}/.hgrc"
-if [ ! -f "${HOME}/.hgrc-local" ]; then
-	echo "-- Creating stub .hgrc-local"
-	touch "${HOME}/.hgrc-local"
-fi
-
 echo "-- Installing fonts"
 cp "${BASEDIR}"/fonts/* "${HOME}/Library/Fonts/"
 

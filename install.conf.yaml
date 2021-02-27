@@ -12,8 +12,6 @@
     ~/.bash-aliases: bash-aliases
     ~/.gitconfig: gitconfig
     ~/.gitignore-global: gitignore-global
-    ~/.hgignore_global: hgignore_global
-    ~/.hgrc-global: hgrc-global
     ~/.inputrc: inputrc
     ~/.screenrc: screenrc
     ~/.tigrc: tigrc
