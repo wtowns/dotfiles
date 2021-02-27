@@ -1,0 +1,4 @@
+# Plugins are managed by TPM, and TPM installs artifacts directly to the plugins/ directory
+plugins/*
+# We need to continue to track TPM itself, however
+!plugins/tpm
