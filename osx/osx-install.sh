@@ -30,17 +30,6 @@ brew update
 echo "-- Checking homebrew installation"
 brew doctor
 
-if ! brew tap | grep 'caskroom/cask' >/dev/null; then
-	echo "-- Installing homebrew-cask"
-	brew tap caskroom/cask
-fi
-
-echo "-- Updating homebrew cask"
-brew cask update
-
-echo "-- Checking homebrew cask installation"
-brew cask doctor
-
 if [ -f "${BASEDIR}/brew-packages" ]; then
 	echo "-- Installing/upgrading brew packages"
 	INSTALLED_BREW_PKGS=$(brew list -1)
@@ -52,19 +41,6 @@ if [ -f "${BASEDIR}/brew-packages" ]; then
 			brew upgrade ${p}
 		fi
 	done 10<"${BASEDIR}/brew-packages"
-fi
-
-if [ -f "${BASEDIR}/brew-cask-packages" ]; then
-	echo "-- Installing/upgrading brew cask packages"
-	INSTALLED_BREW_CASK_PKGS=$(brew cask list -1)
-	OUTDATED_BREW_CASK_PKGS=$(brew outdated -1)
-	while read -u 20 p; do
-		if ! echo "${INSTALLED_BREW_CASK_PKGS}" | grep -q "^${p}\$"; then
-			brew cask install ${p}
-		elif echo "${OUTDATED_BREW_CASK_PKGS}" | grep -q "^${p}\$"; then
-			brew upgrade ${p}
-		fi
-	done 20<"${BASEDIR}/brew-cask-packages"
 fi
 
 if [ -f "${BASEDIR}/npm-packages" ]; then
