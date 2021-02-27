@@ -41,11 +41,6 @@ brew cask update
 echo "-- Checking homebrew cask installation"
 brew cask doctor
 
-if ! command -v pip >/dev/null 2>&1; then
-	echo "-- Installing pip"
-	sudo easy_install pip
-fi
-
 if [ -f "${BASEDIR}/brew-packages" ]; then
 	echo "-- Installing/upgrading brew packages"
 	INSTALLED_BREW_PKGS=$(brew list -1)
@@ -100,11 +95,6 @@ fi
 
 echo "-- Installing fonts"
 cp "${BASEDIR}"/fonts/* "${HOME}/Library/Fonts/"
-
-if ! pip list | grep 'powerline-status' >/dev/null; then
-	echo "-- Installing powerline"
-	pip install --user powerline-status
-fi
 
 if [ ! command -v nunit-console.exe >/dev/null 2>&1 && command -v nunit-console >/dev/null 2>&1 ]; then
 	echo "Symlinking nunit-console"
