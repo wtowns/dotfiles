@@ -27,9 +27,6 @@ if [ -e "$HOME/.p4config" ]; then
 	export P4CONFIG="$HOME/.p4config"
 fi
 
-# Sweet, sweet aliases
-source "$HOME/.bash-aliases"
-
 # Check/source local .bash_profile
 if [ -f "$HOME/.bash_profile-local" ]; then
 	source "$HOME/.bash_profile-local"
@@ -40,3 +37,6 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # If this is an interactive shell, run .bashrc
 [[ $- == *i* ]] && . "$HOME/.bashrc"
+
+# Sweet, sweet aliases
+source "$HOME/.bash-aliases"

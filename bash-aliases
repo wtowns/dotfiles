@@ -1,5 +1,5 @@
 alias g='git'
-complete -o default -o nospace -F _git g
+__git_complete g __git_main
 alias ll='ls -l'
 alias lla='ls -la'
 alias less='less -R' # Colored less output
