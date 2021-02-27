@@ -10,7 +10,6 @@
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
     ~/.bash-aliases: bash-aliases
-    ~/.ctags: ctags
     ~/.gitconfig: gitconfig
     ~/.gitignore-global: gitignore-global
     ~/.hgignore_global: hgignore_global
