@@ -61,6 +61,3 @@ if [ ! -f "${HOME}/.gitconfig-local" ] || [ ! "$(git config -f "${HOME}/.gitconf
 	git config -f "${HOME}/.gitconfig-local" user.name "${FULL_NAME}"
 	git config -f "${HOME}/.gitconfig-local" user.email ${DEFAULT_EMAIL}
 fi
-
-echo "-- Installing fonts"
-cp "${BASEDIR}"/fonts/* "${HOME}/Library/Fonts/"
