@@ -12,7 +12,6 @@ alias gd='git diff --color'
 alias gdi='git diff --color --cached'
 if [[ $OSTYPE == darwin* ]]; then
 	alias ls='gls --color=auto --group-directories-first'
-	#alias ls='ls -G'
 else
 	alias ls='ls --color=auto --group-directories-first'
 fi
@@ -22,7 +21,6 @@ alias glg="git log --graph --all --pretty=format:'%Cred%h%Creset - %Cgreen(%cr)%
 alias gap='git add --patch .'
 alias gat='git add $(git ls-files -o --exclude-standard)'
 alias gsa='git stash -u'
-alias rename='vim -c Renamer'
 alias ss='svn status'
 alias sd='svn diff | colordiff | less'
 alias git-root='cd $(git rev-parse --show-cdup)'
