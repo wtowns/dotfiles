@@ -64,6 +64,3 @@ fi
 
 echo "-- Installing fonts"
 cp "${BASEDIR}"/fonts/* "${HOME}/Library/Fonts/"
-
-echo "-- Additional manual steps:"
-echo "  * Set the iTerm2 preferences directory"
