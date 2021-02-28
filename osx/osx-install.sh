@@ -2,16 +2,22 @@
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-if [ -z "${HOMEBREW_GITHUB_API_TOKEN}" ]; then
-	read -p "Enter your homebrew GitHub API token: " HOMEBREW_GITHUB_API_TOKEN
-	export HOMEBREW_GITHUB_API_TOKEN
-fi
-
 if [ -z "${FULL_NAME}" ]; then
 	read -p "What is your full name? " FULL_NAME
 fi
 if [ -z "${DEFAULT_EMAIL}" ]; then
 	read -p "What is your email address? " DEFAULT_EMAIL
+
+if [ -z "${HOMEBREW_GITHUB_API_TOKEN}" ]; then
+	read -n 1 -s -r -p "Press any key to open your GitHub tokens settings page; be sure not to select any scopes."
+	echo ""
+	open "https://github.com/settings/tokens"
+	read -p "Enter your homebrew GitHub API token: " HOMEBREW_GITHUB_API_TOKEN
+	export HOMEBREW_GITHUB_API_TOKEN
+	if [ ! -z "${HOMEBREW_GITHUB_API_TOKEN}" ]; then
+		echo "-- Writing API token to ~/.bashrc-local"
+		echo "export HOMEBREW_GITHUB_API_TOKEN=${HOMEBREW_GITHUB_API_TOKEN}" >> ~/.bashrc-local
+	fi
 fi
 
 if ! xcode-select -p >/dev/null; then
