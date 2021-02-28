@@ -2,11 +2,17 @@
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+FULL_NAME=$(git config -f "${HOME}/.gitconfig-local" user.name)
 if [ -z "${FULL_NAME}" ]; then
 	read -p "What is your full name? " FULL_NAME
+	git config -f "${HOME}/.gitconfig-local" user.name "${FULL_NAME}"
 fi
+
+DEFAULT_EMAIL=$(git config -f "${HOME}/.gitconfig-local" user.email)
 if [ -z "${DEFAULT_EMAIL}" ]; then
 	read -p "What is your email address? " DEFAULT_EMAIL
+	git config -f "${HOME}/.gitconfig-local" user.email ${DEFAULT_EMAIL}
+fi
 
 if [ -z "${HOMEBREW_GITHUB_API_TOKEN}" ]; then
 	read -n 1 -s -r -p "Press any key to open your GitHub tokens settings page; be sure not to select any scopes."
@@ -60,10 +66,4 @@ if [ -f "${BASEDIR}/npm-packages" ]; then
 			sudo npm update -g ${p}
 		fi
 	done 30<"${BASEDIR}/npm-packages"
-fi
-
-if [ ! -f "${HOME}/.gitconfig-local" ] || [ ! "$(git config -f "${HOME}/.gitconfig-local" user.name)" == "${FULL_NAME}" ] || [ ! "$(git config -f "${HOME}/.gitconfig-local" user.email)" == "${DEFAULT_EMAIL}" ]; then
-	echo "-- Creating/updating .gitconfig-local"
-	git config -f "${HOME}/.gitconfig-local" user.name "${FULL_NAME}"
-	git config -f "${HOME}/.gitconfig-local" user.email ${DEFAULT_EMAIL}
 fi
