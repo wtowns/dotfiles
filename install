@@ -2,12 +2,20 @@
 
 set -e
 
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+pushd "${BASEDIR}" >/dev/null
+
 echo "-- Installing submodules"
 git submodule update --init --recursive
 
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "${BASEDIR}"
+echo "-- Installing dotbot"
 ./install-dotbot
 
-echo "-- Running OSX install script"
-pushd osx; ./osx-install.sh; popd
+if [[ $OSTYPE == darwin* ]]; then
+	echo "-- Running OSX install script"
+	pushd osx >/dev/null
+	./osx-install.sh;
+	popd >/dev/null # osx
+fi
+
+popd >/dev/null # "${BASEDIR}"
