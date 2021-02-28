@@ -54,16 +54,3 @@ if [ -f "${BASEDIR}/brew-packages" ]; then
 		fi
 	done 10<"${BASEDIR}/brew-packages"
 fi
-
-if [ -f "${BASEDIR}/npm-packages" ]; then
-	echo "-- Installing/upgrading npm packages; password may be required"
-	INSTALLED_NPM_MODULES=$(npm ls -g --depth=0)
-	OUTDATED_NPM_MODULES=$(npm outdated -g --depth=0)
-	while read -u 30 p; do
-		if ! echo "${INSTALLED_NPM_MODULES}" | grep -q " ${p}@"; then
-			sudo npm install -g ${p}
-		elif echo "${OUTDATED_NPM_MODULES}" | grep -q "^${p}\s"; then
-			sudo npm update -g ${p}
-		fi
-	done 30<"${BASEDIR}/npm-packages"
-fi
