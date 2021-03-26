@@ -1,6 +1,6 @@
 [submodule "vim"]
 	path = vim
-	url = git@github.com:wtowns/dotvim.git
+	url = https://github.com/wtowns/dotvim.git
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
