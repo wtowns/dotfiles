@@ -38,16 +38,6 @@ else
 	export PS1='\[\033[0m\]\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\] \[\033[0m\]$ '
 fi
 
-# Expose powerline location for tmux
-if hash python2 2>/dev/null; then
-	export POWERLINE_PKG=`python2 -c "from imp import find_module; print(find_module('powerline'))[1]"`
-else
-	export POWERLINE_PKG=`python -c "from imp import find_module; print(find_module('powerline'))[1]"`
-fi
-if [ -d "$POWERLINE_PKG" ]; then
-	export PATH="$PATH":$(cd "${POWERLINE_PKG}/../../../../bin"; pwd)
-fi
-
 # MOTD
 if hash figlet 2>/dev/null; then
 	figlet -w 200 -f larry3d `hostname`
