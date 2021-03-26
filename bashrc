@@ -16,15 +16,20 @@ export EDITOR=vim
 # ssh host autocomplete
 complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
 
+# Use git file listings in fzf
+export FZF_DEFAULT_COMMAND='(git ls-files --recurse-submodules || find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//) 2> /dev/null'
+
+# Check/source local bashrc
+if [ -f "$HOME/.bashrc-local" ]; then
+	source "$HOME/.bashrc-local"
+fi
+
 # Git branch completion and PS1 goodies
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUPSTREAM="auto"
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 	. $(brew --prefix)/etc/bash_completion
 fi
-
-# Use git file listings in fzf
-export FZF_DEFAULT_COMMAND='(git ls-files --recurse-submodules || find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//) 2> /dev/null'
 
 # Custom prompt: User@Location (current git branch)\n$
 if type -t __git_ps1 | grep -q '^function$' 2>/dev/null; then
@@ -41,11 +46,6 @@ else
 fi
 if [ -d "$POWERLINE_PKG" ]; then
 	export PATH="$PATH":$(cd "${POWERLINE_PKG}/../../../../bin"; pwd)
-fi
-
-# Check/source local bashrc
-if [ -f "$HOME/.bashrc-local" ]; then
-	source "$HOME/.bashrc-local"
 fi
 
 # MOTD
