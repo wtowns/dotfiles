@@ -54,3 +54,7 @@ if [ -f "${BASEDIR}/brew-packages" ]; then
 		fi
 	done 10<"${BASEDIR}/brew-packages"
 fi
+
+if ! command -v git-lfs >/dev/null 2>&1; then
+	git lfs install
+fi

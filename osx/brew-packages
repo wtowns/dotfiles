@@ -5,6 +5,7 @@ figlet
 fortune
 fzf
 git
+git-lfs
 mobile-shell
 openssl
 reattach-to-user-namespace
