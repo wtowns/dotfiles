@@ -33,11 +33,15 @@ bind generic + !git commit --amend
 bind main T !@git tag %(prompt) %(commit)
 
 # Invoke difftool for the selected file
-bind generic D @git difftool --no-prompt --trust-exit-code %(commit)^:%(file) %(commit):%(file)
+# (disabled for now)
+# bind generic D @git difftool --no-prompt --trust-exit-code %(commit)^:%(file) %(commit):%(file)
 
 # Show history for selected file
 bind diff H >tig --all %(file)
 bind status H >tig --all %(file)
+
+# Delete file with confirmation
+bind status D !@?rm %(file)
 
 # Color theme
 source ~/.tig-colors/desert.theme
