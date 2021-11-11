@@ -45,7 +45,7 @@ brew doctor
 if [ -f "${BASEDIR}/brew-packages" ]; then
 	echo "-- Installing/upgrading brew packages"
 	INSTALLED_BREW_PKGS=$(brew list -1)
-	OUTDATED_BREW_PKGS=$(brew outdated -1)
+	OUTDATED_BREW_PKGS=$(brew outdated)
 	while read -u 10 p; do
 		if ! echo "${INSTALLED_BREW_PKGS}" | grep -q "^${p}\$"; then
 			brew install ${p}
